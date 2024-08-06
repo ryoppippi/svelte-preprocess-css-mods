@@ -37,7 +37,7 @@ export async function getCssModuleImports(
 		}
 
 		const aliasKey = Object.keys(aliases).find(a => specifier.startsWith(a));
-		if (aliasKey == null) {
+		if (aliasKey != null) {
 			const s = new MagicString(specifier);
 			s.overwrite(0, specifier.length, specifier);
 			return { path: s.toString(), defaultImport, imp };
