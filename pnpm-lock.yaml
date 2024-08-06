@@ -32,6 +32,9 @@ importers:
       svelte-parse-markup:
         specifier: ^0.1.5
         version: 0.1.5(svelte@5.0.0-next.210)
+      type-fest:
+        specifier: ^4.23.0
+        version: 4.23.0
       uint8array-extras:
         specifier: ^1.4.0
         version: 1.4.0

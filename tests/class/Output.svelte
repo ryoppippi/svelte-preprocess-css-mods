@@ -1,8 +1,8 @@
 <script>
 	const s = {
-		error: 's-Lwza_error',
-		success: 's-Lwza_success',
-	};
+  error: "error_class-module-css-module-test",
+  success: "success_class-module-css-module-test"
+};
 </script>
 
 <div class={s.error}>
@@ -15,12 +15,12 @@
 
 <style>
 
-/* /Users/ryoppippi/ghq/github.com/ryoppippi/svelte-preprocess-css-modules/tests/assets/class.module.css */
-.s-Lwza_error {
+
+.error_class-module-css-module-test {
   color: red;
 }
 
-.s-Lwza_success {
+.success_class-module-css-module-test {
   color: green;
 }
 

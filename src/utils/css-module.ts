@@ -6,6 +6,7 @@ import MagicString from 'magic-string';
 import type { StaticImport } from 'mlly';
 import { parseStaticImport, pathToFileURL, resolvePath } from 'mlly';
 import { stringToUint8Array, uint8ArrayToString } from 'uint8array-extras';
+import type { ResolvedOptions } from '../options';
 
 type getCssModuleImportsProps = {
 	imports: StaticImport[];
@@ -63,7 +64,8 @@ export type CssModule = {
 	exports: Record<string, string>;
 } & ResolvedModuleImport;
 
-export async function getCssModule({ path, ...rest }: ResolvedModuleImport): Promise<CssModule> {
+export async function getCssModule({ path, ...rest }: ResolvedModuleImport, options: ResolvedOptions): Promise<CssModule> {
+	const { moduleNameingPattern: pattern } = options;
 	const [err, code] = await to(readFile(path, { encoding: 'utf-8' }));
 
 	if (err != null) {
@@ -73,7 +75,7 @@ export async function getCssModule({ path, ...rest }: ResolvedModuleImport): Pro
 
 	const { code: _css, exports: _exports } = transform({
 		code: stringToUint8Array(code),
-		cssModules: true,
+		cssModules: pattern != null ? { pattern } : true,
 		minify: false,
 		sourceMap: false,
 		filename: path,

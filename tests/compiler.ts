@@ -12,7 +12,10 @@ export async function compiler({
 }: Params) {
 	const { code } = await preprocess(
 		source,
-		[cssModules()],
+		[cssModules({
+			moduleNameingPattern: '[local]_[name]-css-module-test',
+			includeOriginalPath: false,
+		})],
 		preprocessOptions,
 	);
 
