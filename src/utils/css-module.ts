@@ -46,7 +46,7 @@ export async function getCssModuleImports(
 		const [err, resolved] = await to(resolvePath(specifier, { url: filename }));
 
 		if (err != null) {
-			console.error(`Failed to resolve path: ${specifier}`);
+			console.error(err.message);
 			return undefined;
 		}
 
