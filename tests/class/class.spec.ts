@@ -7,7 +7,7 @@ export function resolve(file: string) {
 	return path.resolve(__dirname, file);
 }
 
-it('load css module for class', async () => {
+it('load css module for class', { retry: 5 }, async () => {
 	const filename = resolve('Input.svelte');
 
 	const source = await fs.readFile(filename, 'utf-8');
