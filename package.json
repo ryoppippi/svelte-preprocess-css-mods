@@ -19,6 +19,7 @@
 		"eslint": "^9.8.0",
 		"eslint-plugin-format": "^0.1.2",
 		"eslint-plugin-svelte": "^2.43.0",
+		"lightningcss": "^1.25.1",
 		"mkdist": "^1.5.4",
 		"svelte": "5.0.0-next.210",
 		"typescript": "^5.5.4"
