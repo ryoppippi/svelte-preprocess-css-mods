@@ -1,7 +1,7 @@
 import MagicString from 'magic-string';
 import type { PreprocessorGroup } from 'svelte/compiler';
 import { findStaticImports } from 'mlly';
-import { genObjectFromRaw } from 'knitwork';
+import { genObjectFromValues } from 'knitwork';
 import { loadAliases } from './utils/alias';
 import type { CssModule } from './utils/css-module';
 import { getCssModule, getCssModuleImports } from './utils/css-module';
@@ -35,15 +35,13 @@ export function cssModules(): PreprocessorGroup {
 				cssModules.push(cssModule);
 
 				/* generate css module exports */
-				const obj = genObjectFromRaw(cssModule.exports);
-				const gen = `const ${cmi.defaultImport} = ${obj};`;
+				const obj = genObjectFromValues(cssModule.exports);
+				const gen = `const ${cmi.defaultImport} = ${obj};\n`;
 				s.overwrite(cmi.imp.start, cmi.imp.end, gen);
 			}
 			if (filename != null) {
 				cssModuleCache.set(filename, cssModules);
 			}
-
-			console.log(cssModules);
 
 			return {
 				code: s.toString(),
