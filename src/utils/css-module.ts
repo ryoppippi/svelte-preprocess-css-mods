@@ -4,7 +4,7 @@ import to from 'await-to-js';
 import { transform } from 'lightningcss';
 import MagicString from 'magic-string';
 import type { StaticImport } from 'mlly';
-import { parseStaticImport, resolvePath } from 'mlly';
+import { parseStaticImport, pathToFileURL, resolvePath } from 'mlly';
 import { stringToUint8Array, uint8ArrayToString } from 'uint8array-extras';
 
 type getCssModuleImportsProps = {
@@ -43,7 +43,9 @@ export async function getCssModuleImports(
 			return { path: s.toString(), defaultImport, imp };
 		}
 
-		const [err, resolved] = await to(resolvePath(specifier, { url: filename }));
+		const [err, resolved] = await to(resolvePath(specifier, {
+			url: filename == null ? undefined : pathToFileURL(filename),
+		}));
 
 		if (err != null) {
 			console.error(err.message);
