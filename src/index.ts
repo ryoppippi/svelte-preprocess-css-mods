@@ -1,7 +1,8 @@
 import MagicString from 'magic-string';
 import type { PreprocessorGroup } from 'svelte/compiler';
+import { parse } from 'svelte-parse-markup';
 import { findStaticImports } from 'mlly';
-import { genObjectFromRaw } from 'knitwork';
+import { genObjectFromValues } from 'knitwork';
 import { loadAliases } from './utils/alias';
 import type { CssModule } from './utils/css-module';
 import { getCssModule, getCssModuleImports } from './utils/css-module';
@@ -11,6 +12,22 @@ import { getCssModule, getCssModuleImports } from './utils/css-module';
 export function cssModules(): PreprocessorGroup {
 	const cssModuleCache = new Map<string, CssModule[]>();
 	return {
+		markup({ content, filename }) {
+			const ast = parse(content);
+
+			/* if css is empty, add style tag */
+			if (ast.css == null) {
+				const s = new MagicString(content);
+				s.append('\n<style>\n</style>\n');
+				return {
+					code: s.toString(),
+					map: s.generateMap({
+						source: filename,
+						includeContent: true,
+					}),
+				};
+			}
+		},
 		async script({ content, filename }) {
 			const aliases = await loadAliases();
 			const s = new MagicString(content);
@@ -21,7 +38,7 @@ export function cssModules(): PreprocessorGroup {
 			);
 
 			/* find css/scss module imports */
-			const cssModuleImpots
+			const cssModuleImports
 				= await getCssModuleImports({
 					imports,
 					aliases,
@@ -30,13 +47,13 @@ export function cssModules(): PreprocessorGroup {
 
 			/* transform css/scss modules */
 			const cssModules = [];
-			for (const cmi of cssModuleImpots) {
+			for (const cmi of cssModuleImports) {
 				const cssModule = await getCssModule(cmi);
 				cssModules.push(cssModule);
 
 				/* generate css module exports */
-				const obj = genObjectFromRaw(cssModule.exports);
-				const gen = `const ${cmi.defaultImport} = ${obj};`;
+				const obj = genObjectFromValues(cssModule.exports);
+				const gen = `const ${cmi.defaultImport} = ${obj};\n`;
 				s.overwrite(cmi.imp.start, cmi.imp.end, gen);
 			}
 			if (filename != null) {
