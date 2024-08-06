@@ -7,7 +7,7 @@ function resolve(file: string) {
 	return path.resolve(__dirname, file);
 }
 
-it('test0', async () => {
+it('test1', async () => {
 	const filename = resolve('Input.svelte');
 
 	const source = await fs.readFile(filename, 'utf-8');
