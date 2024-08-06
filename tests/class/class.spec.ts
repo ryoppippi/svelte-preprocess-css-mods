@@ -3,11 +3,11 @@ import path from 'node:path';
 import { expect, it } from 'vitest';
 import { compiler } from '../compiler';
 
-function resolve(file: string) {
+export function resolve(file: string) {
 	return path.resolve(__dirname, file);
 }
 
-it('test1', async () => {
+it('load css module for class', async () => {
 	const filename = resolve('Input.svelte');
 
 	const source = await fs.readFile(filename, 'utf-8');
