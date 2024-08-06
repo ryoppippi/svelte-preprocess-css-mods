@@ -6,10 +6,13 @@ import { genObjectFromValues } from 'knitwork';
 import { loadAliases } from './utils/alias';
 import type { CssModule } from './utils/css-module';
 import { getCssModule, getCssModuleImports } from './utils/css-module';
+import { type Options, resolveOptions } from './options';
 
 // TODO: improve tree-shaking for production build
 
-export function cssModules(): PreprocessorGroup {
+export function cssModules(_options: Options = {}): PreprocessorGroup {
+	const options = resolveOptions(_options);
+
 	const cssModuleCache = new Map<string, CssModule[]>();
 	return {
 		markup({ content, filename }) {
@@ -48,7 +51,7 @@ export function cssModules(): PreprocessorGroup {
 			/* transform css/scss modules */
 			const cssModules = [];
 			for (const cmi of cssModuleImports) {
-				const cssModule = await getCssModule(cmi);
+				const cssModule = await getCssModule(cmi, options);
 				cssModules.push(cssModule);
 
 				/* generate css module exports */
@@ -81,7 +84,7 @@ export function cssModules(): PreprocessorGroup {
 			/* append css module styles */
 			for (const cssModule of cssModules) {
 				const code = `
-/* ${cssModule.path} */
+${options.includeOriginalPath === false ? '' : `/*${cssModule.path}*/`}
 ${cssModule.css}
 `;
 				s.append(code);
