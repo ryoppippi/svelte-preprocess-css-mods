@@ -21,7 +21,7 @@ export function cssModules(): PreprocessorGroup {
 			);
 
 			/* find css/scss module imports */
-			const cssModuleImpots
+			const cssModuleImports
 				= await getCssModuleImports({
 					imports,
 					aliases,
@@ -30,7 +30,7 @@ export function cssModules(): PreprocessorGroup {
 
 			/* transform css/scss modules */
 			const cssModules = [];
-			for (const cmi of cssModuleImpots) {
+			for (const cmi of cssModuleImports) {
 				const cssModule = await getCssModule(cmi);
 				cssModules.push(cssModule);
 
@@ -42,6 +42,8 @@ export function cssModules(): PreprocessorGroup {
 			if (filename != null) {
 				cssModuleCache.set(filename, cssModules);
 			}
+
+			console.log(cssModules);
 
 			return {
 				code: s.toString(),
