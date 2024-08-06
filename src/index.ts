@@ -1,5 +1,6 @@
 import MagicString from 'magic-string';
 import type { PreprocessorGroup } from 'svelte/compiler';
+import { parse } from 'svelte-parse-markup';
 import { findStaticImports } from 'mlly';
 import { genObjectFromValues } from 'knitwork';
 import { loadAliases } from './utils/alias';
@@ -11,6 +12,22 @@ import { getCssModule, getCssModuleImports } from './utils/css-module';
 export function cssModules(): PreprocessorGroup {
 	const cssModuleCache = new Map<string, CssModule[]>();
 	return {
+		markup({ content, filename }) {
+			const ast = parse(content);
+
+			/* if css is empty, add style tag */
+			if (ast.css == null) {
+				const s = new MagicString(content);
+				s.append('\n<style>\n</style>\n');
+				return {
+					code: s.toString(),
+					map: s.generateMap({
+						source: filename,
+						includeContent: true,
+					}),
+				};
+			}
+		},
 		async script({ content, filename }) {
 			const aliases = await loadAliases();
 			const s = new MagicString(content);
