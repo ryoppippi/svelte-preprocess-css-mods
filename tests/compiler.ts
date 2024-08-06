@@ -1,4 +1,3 @@
-import path from 'node:path';
 import { preprocess } from 'svelte/compiler';
 import { cssModules } from '../src';
 
