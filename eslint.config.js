@@ -5,5 +5,8 @@ export default ryoppippi({
 	ignores: ['tests/**/*.svelte'],
 	typescript: {
 		tsconfigPath: './tsconfig.json',
+		overrides: {
+			'import/no-extraneous-dependencies': ['error'],
+		},
 	},
 });
