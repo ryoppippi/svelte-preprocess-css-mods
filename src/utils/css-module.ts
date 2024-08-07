@@ -91,7 +91,7 @@ export async function getCssModule({ path, ...rest }: ResolvedModuleImport, opti
 	for (const [key, value] of Object.entries(_exports)) {
 		__exports[key] = value.name;
 	}
-	const exports = camelcaseKeys(__exports);
+	const exports = options.convertToCamelCase ? camelcaseKeys(__exports) : __exports;
 
 	return { css, exports, path, ...rest };
 }
