@@ -80,6 +80,12 @@ get converted into:
 </style>
 ```
 
+## Related Works
+
+- [svelte-true-css-modules](https://github.com/naumstory/svelte-true-css-modules)
+- [svelte-preprocess-cssmodules](https://github.com/micantoine/svelte-preprocess-cssmodules)
+  - [I forked this project](https://github.com/ryoppippi/svelte-preprocess-cssmodules), but I gave it up
+
 ## License
 
 [MIT](./LICENSE)
