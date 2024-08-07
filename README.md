@@ -1,5 +1,8 @@
 # svelte-preprocess-css-modules
 
+[![npm version](https://img.shields.io/npm/v/svelte-preprocess-css-modules?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-modules)
+[![npm downloads](https://img.shields.io/npm/dm/svelte-preprocess-css-modules?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-modules)
+
 Successor of [svelte-preprocess-cssmodules](https://github.com/micantoine/svelte-preprocess-cssmodules)
 
 ## Installation
