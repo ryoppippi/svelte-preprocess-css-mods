@@ -1,4 +1,4 @@
-import type { RequiredDeep, SetOptional, SetRequired } from 'type-fest';
+import type { RequiredDeep, SetOptional } from 'type-fest';
 import { defu } from 'defu';
 
 /**
