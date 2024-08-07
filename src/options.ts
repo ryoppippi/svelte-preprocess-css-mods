@@ -1,4 +1,5 @@
-import type { SetRequired } from 'type-fest';
+import type { RequiredDeep, SetOptional, SetRequired } from 'type-fest';
+import { defu } from 'defu';
 
 /**
  * Options for the cssModules preprocessor
@@ -23,11 +24,13 @@ export type Options = {
 	convertToCamelCase?: boolean;
 };
 
-export type ResolvedOptions = SetRequired<Options, 'includeOriginalPath'>;
+export type ResolvedOptions = SetOptional<RequiredDeep<Options>, 'moduleNameingPattern'>;
 
-export function resolveOptions(options: Options): ResolvedOptions {
-	return {
-		moduleNameingPattern: options.moduleNameingPattern,
-		includeOriginalPath: options.includeOriginalPath ?? true,
-	};
+const defaultOptions = {
+	includeOriginalPath: true,
+	convertToCamelCase: true,
+} as const satisfies ResolvedOptions;
+
+export function resolveOptions(options: Options): Readonly<ResolvedOptions> {
+	return defu(options, defaultOptions);
 }
