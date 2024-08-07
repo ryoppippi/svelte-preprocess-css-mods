@@ -15,6 +15,12 @@ export type Options = {
 	* @default true
 	*/
 	includeOriginalPath?: boolean;
+
+	/*
+	* Whether to convert the module name to camel case
+	* @default true
+	*/
+	convertToCamelCase?: boolean;
 };
 
 export type ResolvedOptions = SetRequired<Options, 'includeOriginalPath'>;
