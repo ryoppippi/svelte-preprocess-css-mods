@@ -1,14 +1,14 @@
-# svelte-preprocess-css-modules
+# svelte-preprocess-css-mods
 
-[![npm version](https://img.shields.io/npm/v/svelte-preprocess-css-modules?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-modules)
-[![npm downloads](https://img.shields.io/npm/dm/svelte-preprocess-css-modules?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-modules)
+[![npm version](https://img.shields.io/npm/v/svelte-preprocess-css-mods?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-mods)
+[![npm downloads](https://img.shields.io/npm/dm/svelte-preprocess-css-mods?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-mods)
 
 Successor of [svelte-preprocess-cssmodules](https://github.com/micantoine/svelte-preprocess-cssmodules)
 
 ## Installation
 
 ```bash
-npx nypm add -D svelte-preprocess-css-modules
+npx nypm add -D svelte-preprocess-css-mod
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npx nypm add -D svelte-preprocess-css-modules
 ```javascript
 // svelte.config.js
 
-import cssModules from 'svelte-preprocess-css-modules';
+import cssModules from 'svelte-preprocess-css-mod';
 
 export default {
 	preprocess: cssModules({/* options */}),
