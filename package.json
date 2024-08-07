@@ -12,7 +12,8 @@
 		"build": "mkdist -d",
 		"lint": "eslint --cache .",
 		"format": "nr lint --fix",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"release": "nr typecheck && nr test run && nr build && nlx bumpp -s && npm publish"
 	},
 	"dependencies": {
 		"await-to-js": "^3.0.0",
