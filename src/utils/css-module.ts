@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 import camelcaseKeys from 'camelcase-keys';
-import to from 'await-to-js';
 import { transform } from 'lightningcss';
 import MagicString from 'magic-string';
 import type { StaticImport } from 'mlly';
 import { parseStaticImport, pathToFileURL, resolvePath } from 'mlly';
 import { stringToUint8Array, uint8ArrayToString } from 'uint8array-extras';
+import { betterr } from 'betterr';
 import type { ResolvedOptions } from '../options';
 
 type getCssModuleImportsProps = {
@@ -44,7 +44,7 @@ export async function getCssModuleImports(
 			return { path: s.toString(), defaultImport, imp };
 		}
 
-		const [err, resolved] = await to(resolvePath(specifier, {
+		const { err, data: resolved } = await betterr(async () => resolvePath(specifier, {
 			url: filename == null ? undefined : pathToFileURL(filename),
 		}));
 
@@ -66,7 +66,7 @@ export type CssModule = {
 
 export async function getCssModule({ path, ...rest }: ResolvedModuleImport, options: ResolvedOptions): Promise<CssModule> {
 	const { moduleNameingPattern: pattern } = options;
-	const [err, code] = await to(readFile(path, { encoding: 'utf-8' }));
+	const { err, data: code } = await betterr(async () => readFile(path, { encoding: 'utf-8' }));
 
 	if (err != null) {
 		console.error(`Failed to read css module: ${path}`);

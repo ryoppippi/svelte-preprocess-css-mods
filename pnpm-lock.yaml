@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      await-to-js:
-        specifier: ^3.0.0
-        version: 3.0.0
       camelcase-keys:
         specifier: ^9.1.3
         version: 9.1.3
@@ -60,6 +57,9 @@ importers:
       '@types/node':
         specifier: ^22.1.0
         version: 22.1.0
+      betterr:
+        specifier: ^5.1.0
+        version: 5.1.0
       eslint:
         specifier: ^9.8.0
         version: 9.8.0
@@ -890,16 +890,15 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  await-to-js@3.0.0:
-    resolution: {integrity: sha512-zJAaP9zxTcvTHRlejau3ZOY4V7SRpiByf3/dxx2uyKxxor19tpmpV2QRsTKikckwhaPmr2dVpxxMr7jOCYVp5g==}
-    engines: {node: '>=6.0.0'}
-
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  betterr@5.1.0:
+    resolution: {integrity: sha512-mFukGTz1CfuryconjfvMbDCzocvGuPbOC7jm9ljAb5ALX/IIIE/WT0NJaUq69wChB737H284PwPyejzJ6BFQYA==}
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
@@ -3443,11 +3442,11 @@ snapshots:
       postcss: 8.4.41
       postcss-value-parser: 4.2.0
 
-  await-to-js@3.0.0: {}
-
   axobject-query@4.1.0: {}
 
   balanced-match@1.0.2: {}
+
+  betterr@5.1.0: {}
 
   boolbase@1.0.0: {}
 
