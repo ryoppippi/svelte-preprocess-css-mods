@@ -18,7 +18,7 @@ npx nypm add -D svelte-preprocess-css-mods
 ```javascript
 // svelte.config.js
 
-import cssModules from 'svelte-preprocess-css-mods';
+import { cssModules } from 'svelte-preprocess-css-mods';
 
 export default {
 	preprocess: cssModules({/* options */}),
