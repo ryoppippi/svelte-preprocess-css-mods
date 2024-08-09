@@ -13,6 +13,12 @@
 		"css",
 		"css-modules"
 	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs"
+		}
+	},
 	"files": [
 		"dist",
 		"src"
