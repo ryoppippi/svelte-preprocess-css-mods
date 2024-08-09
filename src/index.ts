@@ -8,6 +8,8 @@ import type { CssModule } from './utils/css-module';
 import { getCssModule, getCssModuleImports } from './utils/css-module';
 import { type Options, resolveOptions } from './options';
 
+export type { Options, ResolvedOptions } from './options';
+
 // TODO: improve tree-shaking for production build
 
 export function cssModules(_options: Options = {}): PreprocessorGroup {
