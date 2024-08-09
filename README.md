@@ -8,7 +8,7 @@ Successor of [svelte-preprocess-cssmodules](https://github.com/micantoine/svelte
 ## Installation
 
 ```bash
-npx nypm add -D svelte-preprocess-css-mod
+npx nypm add -D svelte-preprocess-css-mods
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npx nypm add -D svelte-preprocess-css-mod
 ```javascript
 // svelte.config.js
 
-import cssModules from 'svelte-preprocess-css-mod';
+import cssModules from 'svelte-preprocess-css-mods';
 
 export default {
 	preprocess: cssModules({/* options */}),
