@@ -1,7 +1,11 @@
 <script>
 	const s = {
-  error: "error_class-module-css-module-test",
-  success: "success_class-module-css-module-test"
+  success: "success_class-module-css-module-test",
+  error: "error_class-module-css-module-test"
+};
+const s1 = {
+  error: "error_style-module-css-module-test",
+  successMessage: "success-message_style-module-css-module-test"
 };
 </script>
 
@@ -13,6 +17,10 @@
 	world
 </div>
 
+<div class={s1.suceessMessage}>
+  foo
+</div>
+
 <style>
 
 
@@ -21,6 +29,20 @@
 }
 
 .success_class-module-css-module-test {
+  color: green;
+}
+
+
+
+section {
+  padding: 10px;
+}
+
+.error_style-module-css-module-test {
+  color: red;
+}
+
+.success-message_style-module-css-module-test {
   color: green;
 }
 
