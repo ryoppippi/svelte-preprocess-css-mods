@@ -1,10 +1,7 @@
 import type { Config as SvelteKitConfig } from '@sveltejs/kit';
 import type { UserConfig as ViteConfig } from 'vite';
 import { loadConfig } from 'unconfig';
-
-export function addSlash(str: string): string {
-	return (str.endsWith('/') ? str : `${str}/`);
-}
+import { withTrailingSlash } from 'ufo';
 
 export async function loadAliases(): Promise<Record<string, string>> {
 	const { config } = await loadConfig({
@@ -32,7 +29,7 @@ export async function loadAliases(): Promise<Record<string, string>> {
 
 	for (const [key, value] of Object.entries(_alias)) {
 		if (typeof value === 'string' && typeof key === 'string') {
-			alias[key] = addSlash(value);
+			alias[key] = withTrailingSlash(value);
 		}
 	}
 

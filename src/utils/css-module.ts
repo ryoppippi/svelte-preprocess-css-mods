@@ -6,8 +6,8 @@ import type { StaticImport } from 'mlly';
 import { parseStaticImport, pathToFileURL, resolvePath } from 'mlly';
 import { stringToUint8Array, uint8ArrayToString } from 'uint8array-extras';
 import { betterr } from 'betterr';
+import { withTrailingSlash } from 'ufo';
 import type { ResolvedOptions } from '../options';
-import { addSlash } from './alias';
 
 type getCssModuleImportsProps = {
 	imports: StaticImport[];
@@ -38,7 +38,7 @@ export async function getCssModuleImports(
 			throw new Error(`Default import is required for css modules: ${specifier}`);
 		}
 
-		const aliasKey = Object.keys(aliases).find(a => specifier.startsWith(addSlash(a)) || specifier === a);
+		const aliasKey = Object.keys(aliases).find(a => specifier.startsWith(withTrailingSlash(a)) || specifier === a);
 		if (aliasKey != null) {
 			const alias = aliases[aliasKey];
 			const s = new MagicString(specifier);
