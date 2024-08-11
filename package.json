@@ -16,11 +16,16 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs"
-		}
+			"import": "./dist/index.mjs",
+			"jsr": "./src/index.ts"
+		},
+		"./package.json": "./package.json"
 	},
 	"files": [
+		"LICENSE",
+		"README.md",
 		"dist",
+		"package.json",
 		"src"
 	],
 	"scripts": {
@@ -29,7 +34,10 @@
 		"lint": "eslint --cache .",
 		"format": "nr lint --fix",
 		"typecheck": "tsc --noEmit",
-		"release": "nr typecheck && nr test run && nr build && nlx publint && nlx bumpp && npm publish"
+		"release": "nr release:pre && nlx bumpp && nr release:npm && nr release:jsr",
+		"release:pre": "nr typecheck && nr test run && nr build && nlx publint",
+		"release:npm": "npm publish",
+		"release:jsr": "nlx pkg-to-jsr && nlx jsr publish --allow-dirty"
 	},
 	"dependencies": {
 		"betterr": "^5.1.0",

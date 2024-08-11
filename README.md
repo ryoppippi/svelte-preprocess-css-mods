@@ -3,6 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/svelte-preprocess-css-mods?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-mods)
 [![npm downloads](https://img.shields.io/npm/dm/svelte-preprocess-css-mods?color=yellow)](https://npmjs.com/package/svelte-preprocess-css-mods)
 
+[![JSR](https://jsr.io/badges/@ryoppippi/svelte-preprocess-css-mods)](https://jsr.io/@ryoppippi/svelte-preprocess-css-mods)
+[![JSR](https://jsr.io/badges/@ryoppippi/svelte-preprocess-css-mods/score)](https://jsr.io/@ryoppippi/svelte-preprocess-css-mods)
+
 Successor of [svelte-preprocess-cssmodules](https://github.com/micantoine/svelte-preprocess-cssmodules)
 
 ## Installation
