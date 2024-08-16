@@ -58,7 +58,7 @@
 	"devDependencies": {
 		"@antfu/ni": "^0.22.1",
 		"@ryoppippi/eslint-config": "npm:@jsr/ryoppippi__eslint-config",
-		"@sveltejs/kit": "^2.5.21",
+		"@sveltejs/kit": "^2.5.22",
 		"@types/node": "^22.2.0",
 		"eslint": "^9.9.0",
 		"eslint-plugin-format": "^0.1.2",
