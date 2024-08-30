@@ -58,8 +58,8 @@ importers:
         specifier: npm:@jsr/ryoppippi__eslint-config
         version: '@jsr/ryoppippi__eslint-config@0.0.23(@typescript-eslint/utils@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(@vue/compiler-sfc@3.4.38)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint-plugin-svelte@2.43.0(eslint@9.9.1(jiti@1.21.6))(svelte@5.0.0-next.239))(eslint@9.9.1(jiti@1.21.6))(svelte-eslint-parser@0.41.0(svelte@5.0.0-next.239))(svelte@5.0.0-next.239)(typescript@5.5.4)(vitest@2.0.5(@types/node@22.5.0)(lightningcss@1.26.0))'
       '@sveltejs/kit':
-        specifier: ^2.5.24
-        version: 2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0)))(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0))
+        specifier: ^2.5.25
+        version: 2.5.25(@sveltejs/vite-plugin-svelte@3.1.2(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0)))(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0))
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -674,8 +674,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@sveltejs/kit@2.5.24':
-    resolution: {integrity: sha512-Nr2oxsCsDfEkdS/zzQQQbsPYTbu692Qs3/iE3L7VHzCVjG2+WujF9oMUozWI7GuX98KxYSoPMlAsfmDLSg44hQ==}
+  '@sveltejs/kit@2.5.25':
+    resolution: {integrity: sha512-5hBSEN8XEjDZ5+2bHkFh8Z0QyOk0C187cyb12aANe1c8aeKbfu5ZD5XaC2vEH4h0alJFDXPdUkXQBmeeXeMr1A==}
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -3121,7 +3121,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@sveltejs/kit@2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0)))(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0))':
+  '@sveltejs/kit@2.5.25(@sveltejs/vite-plugin-svelte@3.1.2(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0)))(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.1.2(svelte@5.0.0-next.239)(vite@5.4.2(@types/node@22.5.0)(lightningcss@1.26.0))
       '@types/cookie': 0.6.0
