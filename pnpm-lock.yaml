@@ -61,7 +61,7 @@ importers:
         specifier: ^2.5.26
         version: 2.5.26(@sveltejs/vite-plugin-svelte@3.1.2(svelte@5.0.0-next.243)(vite@5.4.3(@types/node@22.5.4)(lightningcss@1.26.0)))(svelte@5.0.0-next.243)(vite@5.4.3(@types/node@22.5.4)(lightningcss@1.26.0))
       '@types/node':
-        specifier: ^22.5.3
+        specifier: ^22.5.4
         version: 22.5.4
       eslint:
         specifier: ^9.9.1
