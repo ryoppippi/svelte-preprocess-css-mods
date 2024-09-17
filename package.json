@@ -59,7 +59,7 @@
 		"@antfu/ni": "^0.23.0",
 		"@ryoppippi/eslint-config": "npm:@jsr/ryoppippi__eslint-config",
 		"@sveltejs/kit": "^2.5.26",
-		"@types/node": "^22.5.4",
+		"@types/node": "^22.5.5",
 		"eslint": "^9.10.0",
 		"eslint-plugin-format": "^0.1.2",
 		"eslint-plugin-svelte": "^2.44.0",
